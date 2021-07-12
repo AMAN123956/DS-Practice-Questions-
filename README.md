@@ -1,2 +1,2 @@
 # DS-Practice-Questions-
-To keep track all of the questions done of ds
+To keep track of Data Structure Questions
