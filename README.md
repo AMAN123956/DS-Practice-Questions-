@@ -1,2 +1,3 @@
 # DS-Practice-Questions-
-To keep track of Data Structure Questions
+To keep track of Data Structure Important Questions 
+
