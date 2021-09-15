@@ -37,15 +37,18 @@ void solve(){
   ll n;
   cin>>n;
   int j=0;
-  ll arr[n+1];
-  int hmap[n+1]={0};
-  rep(i,1,n+1) cin>>arr[i];
-  rep(i,1,n+1){
-      hmap[arr[i]]++;
+  ll arr[n];
+  unordered_map<int,int> mp;
+  rep(i,0,n) cin>>arr[i];
+  rep(i,0,n){
+      mp[arr[i]]++;
     //   cout<<arr[i]<<" "<<hmap[arr[i]-1]<<"\n";
   }
-  rep(i,1,n+1){
-      cout<<i<<" "<<hmap[i]<<"\n";
+  for(int i=0;i<n;i++){
+      if(mp[arr[i]]!=-1){
+          cout<<arr[i]<<" "<<mp[arr[i]]<<"\n";
+          mp[arr[i]]=-1;
+      }
   }
   return;
 }
