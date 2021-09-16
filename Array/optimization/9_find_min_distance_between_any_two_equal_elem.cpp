@@ -58,5 +58,5 @@ int main()
   return 0;
 }
 
-// Time Complexity: O(nlogn)
-// Space Complexity: O(1)
+// Time Complexity: O(n^2)
+// Space Complexity: O(n)
