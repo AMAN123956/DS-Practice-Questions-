@@ -1,4 +1,4 @@
-// Smallest subarray with sum greater than k
+// Number of subsets with product less than or equal to k
 #include <bits/stdc++.h>
 using namespace std;
 
