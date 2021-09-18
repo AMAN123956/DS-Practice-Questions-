@@ -20,7 +20,9 @@ public:
             }
             else{
                 left_sum+=nums[index];
+                if(index<nums.size()-1)
                 index+=1;
+                else break;
                 right_sum-=nums[index];
             }
         }
