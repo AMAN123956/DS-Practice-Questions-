@@ -1,0 +1,35 @@
+# Problem Name: Deadline
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define pb push_back
+#define rep(i, a, b) for (int i=a; i<=b; i++)
+typedef long long ll;
+typedef vector<ll> vll;
+ 
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--){
+       ll n,d,result=0,x,flag=0;
+       cin>>n>>d;
+       if(d<=n) cout<<"YES"<<"\n";
+       else{
+           rep(i,1,n/2){
+               x=i;
+               double div = double(d)/double(x+1);
+               result=x+ceil(div);
+               if(result<=n){
+                   flag=1;
+                   break;
+               }
+               else continue;
+           }
+           flag==1?cout<<"YES"<<"\n":cout<<"NO"<<"\n";
+       }
+   }
+	
+	return 0;
+}
