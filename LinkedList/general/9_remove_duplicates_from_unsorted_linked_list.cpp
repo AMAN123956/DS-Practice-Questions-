@@ -1,56 +1,64 @@
 // { Driver Code Starts
-//Initial template for C++
-
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
-    int data;
-    struct Node* next;
-    
-    Node(int x){
-        data = x;
-        next = NULL;
-    }
+struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
 };
-void printList(Node* node) 
-{ 
-    while (node != NULL) { 
-        cout << node->data <<" "; 
-        node = node->next; 
-    }  
-    cout<<"\n";
-} 
+
+void print(Node *root)
+{
+Node *temp = root;
+while(temp!=NULL)
+{
+cout<<temp->data<<" ";
+temp=temp->next;
+}
+}
 
 
  // } Driver Code Ends
-/* Link list Node 
+/*
+The structure of linked list is the following
+
 struct Node {
-    int data;
-    Node* next;
-    
-    Node(int x){
-        data = x;
-        next = NULL;
-    }
-    
-}; */
-class Solution{
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
+*/
+
+
+class Solution
+{
     public:
-    /* Should return data of middle node. If linked list is empty, then  -1*/
-    int getMiddle(Node *head)
+    //Function to remove duplicates from unsorted linked list.
+    Node * removeDuplicates( Node *head) 
     {
-        // Your code here
-        Node* fast=head;
-        Node* slow=head;
-        while(fast && fast->next && fast->next->next && slow){
-            fast=fast->next->next;
-            slow=slow->next;
-        }
-        if(fast->next)
-        return slow->next->data;
-        else return slow->data;
+     // your code goes here
+     unordered_set<int> s;
+     Node* curr=head;
+     Node* prev=NULL;
+     while(curr!=NULL){
+         if(s.find(curr->data)!=s.end()){
+             prev->next=curr->next;
+             delete(curr);
+         }
+         else{
+             s.insert(curr->data);
+             prev=curr;
+         }
+         curr=prev->next;
+     }
+     return head;
     }
 };
 
@@ -58,26 +66,34 @@ class Solution{
 // { Driver Code Starts.
 
 int main() {
-    //code
-    int t;
-    cin>>t;
-    while(t--){
-        int N;
-        cin>>N;
-        int data;
-        cin>>data;
-        struct Node *head = new Node(data);
-        struct Node *tail = head;
-        for (int i = 0; i < N-1; ++i)
-        {
-            cin>>data;
-            tail->next = new Node(data);
-            tail = tail->next;
-        }
-        
-        Solution ob;
-        cout << ob.getMiddle(head) << endl;
-    }
-    return 0;
-}
-  // } Driver Code Ends
+	// your code goes here
+	int T;
+	cin>>T;
+	
+	while(T--)
+	{
+		int K;
+		cin>>K;
+		struct Node *head = NULL;
+        struct Node *temp = head;
+ 
+		for(int i=0;i<K;i++){
+		int data;
+		cin>>data;
+			if(head==NULL)
+			head=temp=new Node(data);
+			else
+			{
+				temp->next = new Node(data);
+				temp=temp->next;
+			}
+		}
+		
+	    Solution ob;
+		Node *result  = ob.removeDuplicates(head);
+		print(result);
+		cout<<endl;
+		
+	}
+	return 0;
+}  // } Driver Code Ends
