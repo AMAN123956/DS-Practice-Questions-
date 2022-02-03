@@ -20,6 +20,8 @@ public:
 
 class Solution {
     vector<int> res;
+    
+// preorder traversal
 public:
     vector<int> preorder(Node* root) {
         if(!root) return {};
@@ -31,4 +33,18 @@ public:
         
         return res;
     }
+    
+// post order traversal
+     vector<int> postorder(Node* root) {
+         if(!root) return {};
+       
+     
+        for(Node* child: root->children){
+            postorder(child);
+        }
+         res.push_back(root->val);
+        return res;
+    }
+ 
+    
 };
