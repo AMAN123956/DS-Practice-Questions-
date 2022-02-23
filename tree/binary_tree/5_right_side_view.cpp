@@ -43,3 +43,31 @@ public:
    return ans;
     }
 };
+
+
+
+
+// RECURSIVE APPROACH  =================================================================================================================================================
+
+class Solution {
+public:
+   void solve(TreeNode* root,vector<int> &ans,int level){
+       if(root == NULL) return;
+       
+       // it means a new level is reached push the element
+       if(ans.size()==level) ans.push_back(root->val);
+       
+       solve(root->right,ans,level+1);
+       solve(root->left,ans,level+1);
+       
+       return;
+   } 
+   
+   vector<int> rightSideView(TreeNode* root) {
+       vector<int> ans;
+       if(root == NULL) return ans;
+       int level = 0;
+       solve(root,ans,level);
+       return ans;
+    }
+};
