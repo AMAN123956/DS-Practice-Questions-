@@ -1,4 +1,5 @@
 Problem Link: https://leetcode.com/problems/majority-element/
+// Moore Voting Algorithm
 
 class Solution {
 public:
@@ -8,6 +9,7 @@ public:
    int ans=A[0];
    int count=1;
     
+   // To find majority element
    for(int i=1;i<A.size();i++){
        if(ans==A[i]) count++;
        else if(ans!=A[i]) count--;
@@ -18,7 +20,8 @@ public:
        }
         
    }
-        
+    
+    // To check if majority element is actually a majority element
     count=0;
     for(int i=0;i<A.size();i++){
         if(A[i]==ans) count++;
